@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "nyc mocha --require @babel/register \"tests/**/*.js\"",
-    "start": "nodemon --exec  node --require @babel/register server.js"
+    "start": "nodemon --exec  node --require @babel/register server.js",
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
+    "migrate:test": "NODE_ENV=test npm run migrate"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,14 @@
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mocha": "^8.1.3",
     "nodemon": "^2.0.5",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "pg": "^8.4.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
